@@ -14,7 +14,7 @@ cov2 = [[1, 0], [0, 10]]
 mean3 = (20, 0)
 cov3 = [[10, 0], [0, 10]]
 
-totalPoints = 1500
+totalPoints = 150
 """for calculation"""
 x = []
 """for show"""
@@ -40,7 +40,7 @@ for i in range(0, totalPoints):
         b.append(y1[0])
         x.append([x1[0], y1[0]])
 
-miu = np.random.rand(2, 3) * 25
+miu = np.random.rand(2, 3) * 30
 miu2 = np.transpose(miu)
 k = 1 / 3
 w = np.array([k, k, k])
@@ -129,15 +129,14 @@ def main():
         print(l2)
         if abs(l1 - l2) < .0000001:
             break
-        if i == 50:
-            break
+        # if i == 50:
+        #     break
         l1 = l2
-        E()
-        M()
         i += 1
 
     print(miu2)
     print(sigma)
+    print(i)
 
 
 if __name__ == "__main__":
