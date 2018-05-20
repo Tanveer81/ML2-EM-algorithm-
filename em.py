@@ -13,8 +13,12 @@ mean2 = (20, 20)
 cov2 = [[1, 0], [0, 10]]
 mean3 = (20, 0)
 cov3 = [[10, 0], [0, 10]]
+mean = []
+cov = []
 
-totalPoints = 150
+distribution = 3
+
+totalPoints = 500
 """for calculation"""
 x = []
 """for show"""
@@ -66,7 +70,7 @@ def show():
     # plt.pause(0.01)
     # plt.clf()
     plt.show()
-    time.sleep(1)
+    time.sleep(.05)
 
 
 def ll():
@@ -76,7 +80,7 @@ def ll():
         for i in range(0, 3):
             sum2 += w[i] * multivariate_normal.pdf([x[j][0], x[j][1]], miu2[i], sigma[i])
         sum1 += np.log(sum2)
-        return sum1
+    return sum1
 
 
 def E():
@@ -127,10 +131,10 @@ def main():
         show()
         l2 = ll()
         print(l2)
-        if abs(l1 - l2) < .0000001:
+        if abs(l1 - l2) < .0001:
             break
-        # if i == 50:
-        #     break
+        if i == 50:
+            break
         l1 = l2
         i += 1
 
